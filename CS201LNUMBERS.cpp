@@ -3,9 +3,11 @@
 //Program allows user to enter 4 numbers. It should output the largest, smallest, average, print in increasing order, and in descendcing order/ It should 
 
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-int main(){
+
+int main() {
 	char again = 'y';
 	while (again == 'y') {
 		cout << "Enter 4 numbers: ";
@@ -21,6 +23,7 @@ int main(){
 			large = num3;
 		if (num4 > large)
 			large = num4;
+
 		cout << "The largest number is: " << large << endl;
 		//find the smallest number
 		int small = num1;
@@ -35,24 +38,20 @@ int main(){
 		double average = (num1 + num2 + num3 + num4) / 4.0;
 		cout << "The average is: " << average << endl;
 
-		//print in increasing order
+		//print in ascending order
+		int ascendingNumbers[] = { num1, num2, num3, num4 };
+		sort(ascendingNumbers, ascendingNumbers + 4); //sort the array in ascending order
+		cout << "Ascending order: " << ascendingNumbers[0] << " " << ascendingNumbers[1] << " " << ascendingNumbers[2] << " " << ascendingNumbers[3] << endl;
 
-		
-		
+		//print in descending order 
+		int descendingNumbers[] = { num1, num2, num3, num4 };
+		sort(descendingNumbers, descendingNumbers + 4, greater<int>()); //sort the array in descending order
+		cout << "Descending order: " << descendingNumbers[0] << " " << descendingNumbers[1] << " " << descendingNumbers[2] << " " << descendingNumbers[3] << endl;
 
-		
+
+		cout << "Do you want to enter another set of numbers? (y/n): ";
+		cin >> again;
 
 	}
 
-
 }
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
